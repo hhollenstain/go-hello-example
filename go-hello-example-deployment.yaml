@@ -1,0 +1,21 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: go-hello-example
+  labels:
+    app: go-hello-example
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: go-hello-example
+  template:
+    metadata:
+      labels:
+        app: go-hello-example
+    spec:
+      containers:
+      - name: go-hello-example
+        image: hhollenstain/go-hello-example:latest
+        ports:
+        - containerPort: 8080
